@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:iPOPreg"
         mc:Ignorable="d"
-        Title="inicio de sesion" Height="450" Width="800">
-    <Grid>
+        Title="Inicio de sesion" Height="386" Width="714" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True" Background="Transparent">
+    <Border BorderThickness="1" CornerRadius="30">
+        <Border.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF182B47"/>
+                <GradientStop Color="#FF55ECAE" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid x:Name="Panel_Login" Height="369" Loaded="Panel_Login_Loaded">
 
-    </Grid>
+            <Label Content="Usuario:" HorizontalAlignment="Left" Margin="68,70,0,0" VerticalAlignment="Top" Height="31" Width="162" Foreground="White" FontFamily="Arial" FontSize="14"/>
+            <Label Content="Contraseña:" HorizontalAlignment="Left" Height="32" Margin="68,118,0,0" VerticalAlignment="Top" Width="162" Foreground="White" FontFamily="Arial" FontSize="14"/>
+            <TextBox x:Name="User_Login" HorizontalAlignment="Left" Height="25" Margin="166,70,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" Background="#FFD6FFF2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            <PasswordBox x:Name="Psw_Login" HorizontalAlignment="Left" Height="25" Margin="166,116,0,0" VerticalAlignment="Top" Width="164" Background="#FFD6FFF2" HorizontalContentAlignment="Left" VerticalContentAlignment="Center"/>
+            <Button x:Name="Salir_Login" Content="Salir" HorizontalAlignment="Left" Height="26" Margin="562,306,0,0" VerticalAlignment="Top" Width="117" Click="Salir_Login_Click"/>
+            <ListBox x:Name="UserList_Login" HorizontalAlignment="Left" Height="130" Margin="356,152,0,0" VerticalAlignment="Top" Width="323"/>
+            <Button x:Name="RefreshList_Login" Content="Actualizar lista" HorizontalAlignment="Left" Height="28" Margin="562,120,0,0" VerticalAlignment="Top" Width="117" Click="RefreshList_Login_Click"/>
+            <Button Content="BD Servidor" HorizontalAlignment="Left" Height="26" Margin="400,306,0,0" VerticalAlignment="Top" Width="129"/>
+            <Button x:Name="Verificar_Login" Content="Verificar" HorizontalAlignment="Left" Height="27" Margin="225,164,0,0" VerticalAlignment="Top" Width="105" IsDefault="True" Background="#FFC8DEFF" Click="Verificar_Login_Click"/>
+            <Button x:Name="Minimizar_Login" Content="Min" HorizontalAlignment="Left" Height="31" Margin="652,22,0,0" VerticalAlignment="Top" Width="41" FontWeight="Normal" FontSize="18" Background="#FF7CCFCF" BorderBrush="#FF71B2FF" Click="Minimizar_Login_Click"/>
+
+        </Grid>
+    </Border>
 </Window>

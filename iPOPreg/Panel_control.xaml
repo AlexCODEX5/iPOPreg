@@ -1,0 +1,32 @@
+﻿<Window x:Class="iPOPreg.Panel_control"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:iPOPreg"
+        mc:Ignorable="d"
+        Title="Panel de control" Height="450" Width="800">
+    <Border BorderThickness="1" BorderBrush="Black" HorizontalAlignment="Center" Height="430" VerticalAlignment="Top" Width="800">
+        <Grid>
+            <Button Content="Mostrar equipos salientes" HorizontalAlignment="Left" Height="64" Margin="431,214,0,0" VerticalAlignment="Top" Width="250"/>
+            <Button Content="Mostrar Equipos entrantes" HorizontalAlignment="Left" Height="64" Margin="149,214,0,0" VerticalAlignment="Top" Width="250"/>
+            <Button HorizontalAlignment="Left" Height="64" Margin="149,106,0,0" VerticalAlignment="Top" Width="250" IsDefault="True" Background="#FFD8E7EA" BorderBrush="#FF7085B2">
+                <TextBlock Text="Registrar equipo" TextWrapping="Wrap"/>
+            </Button>
+            <Button Content="Equipos prestados" HorizontalAlignment="Left" Height="64" Margin="431,106,0,0" VerticalAlignment="Top" Width="250"/>
+            <Button x:Name="AddUser_Panel" HorizontalAlignment="Left" Margin="0,106,0,0" VerticalAlignment="Top" Height="46" Width="45" BorderBrush="#FFBFBFBF" ToolTip="Agregar Nuevo Usuario">
+                <Button.Background>
+                    <ImageBrush ImageSource="/Accept-User.ico"/>
+                </Button.Background>
+            </Button>
+            <Button x:Name="Logout_Panel" HorizontalAlignment="Left" Margin="0,55,0,0" VerticalAlignment="Top" Height="46" Width="45" BorderBrush="#FFBFBFBF" ToolTip="Cerrar Sesion">
+                <Button.Background>
+                    <ImageBrush ImageSource="/systemlogout_103399.ico" Stretch="UniformToFill"/>
+                </Button.Background>
+            </Button>
+            <Label Content="Presione [ENTER] para registrar equipo" HorizontalAlignment="Left" Height="28" Margin="149,78,0,0" VerticalAlignment="Top" Width="250"/>
+
+
+        </Grid>
+    </Border>
+</Window>
