@@ -23,7 +23,7 @@ namespace iPOPreg
     /// </summary>
     public partial class MainWindow : Window
     {
-        BDConexion verifyUser = new BDConexion();
+        
         
         public MainWindow()
         {
@@ -45,6 +45,7 @@ namespace iPOPreg
         //Cada cadena se obtiene por el data set por defecto que genera el Login
         private void Verificar_Login_Click(object sender, RoutedEventArgs e)
         {
+            BDConexion verifyUser = new BDConexion();
             MySqlConnection verifyUserCon = new MySqlConnection(verifyUser.CadenaConexion());//Conexion
 
             try
@@ -60,7 +61,7 @@ namespace iPOPreg
             if (verifyUserCon.State == ConnectionState.Open)
             {
                 MySqlDataReader reader;
-                verifyUser.SetCadenaTable("docentes");
+                verifyUser.SetCadenaTable("docente");
                 reader = verifyUser.VerifyUser(verifyUserCon, verifyUser.CadenaTable(), User_Login.Text, Psw_Login.Password);
                 if (reader.HasRows)
                 {
@@ -83,7 +84,9 @@ namespace iPOPreg
         private void Panel_Login_Loaded(object sender, RoutedEventArgs e)
         {
             User_Login.Focus();
-
+            BDConexion verifyUser = new BDConexion();
+            verifyUser.SetCadenaConexion("127.0.0.1", "3306", "root", "", "bd_ipopreg_iiee");
+            verifyUser.SetCadenaTable("docente");
             MySqlConnection UserList = new MySqlConnection(verifyUser.CadenaConexion());
             try
             {
@@ -93,27 +96,13 @@ namespace iPOPreg
             {
                 MessageBox.Show(ex.Message);
             }
-
-            if (UserList.State == ConnectionState.Open)
-            {
-                MySqlDataReader reader;
-                reader = verifyUser.UserList(UserList, verifyUser.CadenaTable());
-                //Aqui existe un metodo para ser agregado a clase
-                if (reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-                        string[] row = { reader.GetString(0), reader.GetString(1) };
-                        UserList_Login.Items.Add($"{row[0]} {row[1]}");
-                    }
-                }
-            }
             UserList.Close();
-            MySqlConnection.ClearPool(UserList);
         }
+        
 
         private void RefreshList_Login_Click(object sender, RoutedEventArgs e)
         {
+            BDConexion verifyUser = new BDConexion();
             MySqlConnection UserList = new MySqlConnection(verifyUser.CadenaConexion());
             try
             {
@@ -123,22 +112,7 @@ namespace iPOPreg
             {
                 MessageBox.Show(ex.Message);
             }
-            if (UserList.State == ConnectionState.Open)
-            {
-                MySqlDataReader reader;
-                reader = verifyUser.UserList(UserList, verifyUser.CadenaTable());
-                if (reader.HasRows)
-                {
-                    UserList_Login.Items.Clear();
-                    while (reader.Read())
-                    {
-                        string[] row = { reader.GetString(0), reader.GetString(1) };
-                        UserList_Login.Items.Add($"{row[0]} {row[1]}");
-                    }
-                }
-            }
             UserList.Close();
-            MySqlConnection.ClearPool(UserList);
         }
     }
 }

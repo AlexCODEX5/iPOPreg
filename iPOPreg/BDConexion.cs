@@ -12,9 +12,9 @@ namespace iPOPreg
     {
         //Cada data reader se genera por cada metodo de operacion de base de datos
         //Cada table se define por la funcion
-        private string connectionString = "";
-        string query;
-        string table;
+        string connectionString = "datasource=127.0.0.1;port=3306;username=root;password=;database=bd_ipopreg_iiee;";
+        string query= "SELECT * FROM 'docente'";
+        string table = "docente";
 
         public string CadenaTable()
         {
@@ -33,7 +33,7 @@ namespace iPOPreg
 
         public void SetCadenaConexion(string datasource, string port, string username, string password, string database)
         {
-            connectionString = $"datasource={datasource};port={port};username={username};password={password};database={database}";
+            connectionString = $"datasource={datasource};port={port};username={username};password={password};database={database};";
         }
 
         public void GetConect(MySqlConnection bdConnect)

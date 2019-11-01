@@ -4,6 +4,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>database_theapplication_3365.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
